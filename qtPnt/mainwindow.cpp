@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     set_icons();
+         ui->centralWidget->adjustSize();
 }
 
 MainWindow::~MainWindow()
@@ -135,5 +136,33 @@ process->start( "/bin/rm " + qApp->applicationDirPath() + "copia.png");
 
 void MainWindow::on_pushButton_exit_clicked()
 {
-this->close();
+    this->close();
+}
+
+void MainWindow::on_pushButton_resonance_clicked()
+{    QPushButton* button_rigth= new QPushButton(this);
+     QSize size;
+     size=QSize(96,96);
+     QIcon icon;
+     icon=QIcon(_LINK_USER + "/qtPnt/png/sum_b.png");
+
+     button_rigth->setFixedSize(120,96);
+     button_rigth->move(1400,(800));
+     button_rigth->setIconSize(size);
+     button_rigth->setFlat(true);
+     button_rigth->setStyleSheet("* { background-color: rgba(0,0,0,10) }");
+     button_rigth->setIcon(icon);
+     button_rigth->show();
+
+
+    QPixmap image( _LINK_USER  + "/qtPnt/jpg/reso01.jpg");
+
+    QLabel *imageLabel = new QLabel();
+
+
+    imageLabel->setPixmap(image);
+    imageLabel->setAlignment(Qt::AlignCenter);
+    imageLabel->show();
+
+
 }
